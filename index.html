@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ing. Brigette Arroyo | Tecnología y Formación</title>
+
+    <meta 
+        name="description" 
+        content="Portal educativo de la Ing. Brigette Arroyo. Aprende Computación, Redes Sociales, Electricidad y Plomería."
+    >
+
+    <!-- Iconos -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         BARRA DE NAVEGACIÓN
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <!-- LOGO / NOMBRE -->
+            <a href="#inicio" class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span class="graduation">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </span>
+                </div>
+
+                <div class="logo-text">
+                    <h1>Ing. Brigette Arroyo</h1>
+                    <p>Tecnología y Formación para tu Futuro</p>
+                </div>
+
+            </a>
+
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button 
+                class="menu-toggle" 
+                id="menuToggle"
+                aria-label="Abrir menú"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <!-- MENÚ -->
+            <nav class="nav" id="mainNav">
+
+                <a href="#inicio" class="nav-link active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="#materias" class="nav-link">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Materias</span>
+                    <i class="fa-solid fa-chevron-down small-arrow"></i>
+                </a>
+
+                <a href="#recursos" class="nav-link">
+                    <i class="fa-regular fa-folder-open"></i>
+                    <span>Recursos</span>
+                    <i class="fa-solid fa-chevron-down small-arrow"></i>
+                </a>
+
+                <a href="#calendario" class="nav-link">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Calendario</span>
+                </a>
+
+                <a href="#sobre-mi" class="nav-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sobre mí</span>
+                </a>
+
+                <a href="#contacto" class="nav-link">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO / PRESENTACIÓN
+        ====================================================== -->
+
+        <section class="hero" id="inicio">
+
+            <div class="container hero-container">
+
+                <!-- TEXTO -->
+                <div class="hero-content">
+
+                    <div class="welcome">
+                        <span class="decor-line">‹</span>
+                        <span>¡Bienvenidos!</span>
+                        <span class="decor-line">›</span>
+                    </div>
+
+                    <h2>
+                        Aprende, practica
+                        <br>
+                        y construye tu futuro
+                    </h2>
+
+                    <p>
+                        Soy tu profesora de computación y te acompaño
+                        en el desarrollo de tus habilidades en tecnología,
+                        redes sociales, electricidad y plomería.
+                        Aquí encontrarás materiales, actividades y recursos
+                        para aprender de forma práctica y sencilla.
+                    </p>
+
+                    <a href="#sobre-mi" class="btn btn-primary">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        Conoce más sobre mí
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- IMAGEN DEL HERO -->
+                <div class="hero-image">
+
+                    <!-- 
+                        Posteriormente colocaremos aquí
+                        la fotografía/ilustración del diseño.
+                    -->
+
+                    <img 
+                        src="img/hero.jpg" 
+                        alt="Educación y tecnología"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MATERIAS
+        ====================================================== -->
+
+        <section class="subjects section" id="materias">
+
+            <div class="container">
+
+                <!-- TÍTULO -->
+                <div class="section-heading">
+
+                    <div class="title-decoration">
+                        <span>‹</span>
+                        <h2>Mis Materias</h2>
+                        <span>›</span>
+                    </div>
+
+                    <p>
+                        Explora cada área, encuentra los recursos
+                        y sigue aprendiendo.
+                    </p>
+
+                </div>
+
+
+                <!-- TARJETAS -->
+                <div class="subjects-grid">
+
+
+                    <!-- REDES SOCIALES -->
+                    <article class="subject-card social-card">
+
+                        <div class="subject-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-tiktok"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+
+                        <h3>Redes Sociales</h3>
+
+                        <ul>
+                            <li>Conceptos y usos</li>
+                            <li>Seguridad y privacidad</li>
+                            <li>Creación de contenido</li>
+                            <li>Actividades y más...</li>
+                        </ul>
+
+                        <a href="#" class="subject-btn">
+                            Ver materia
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- COMPUTACIÓN -->
+                    <article class="subject-card computer-card">
+
+                        <div class="subject-icon computer-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <h3>Computación</h3>
+
+                        <ul>
+                            <li>Conceptos básicos</li>
+                            <li>Hardware y software</li>
+                            <li>Windows y herramientas digitales</li>
+                            <li>Internet y más...</li>
+                        </ul>
+
+                        <a href="#" class="subject-btn">
+                            Ver materia
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- ELECTRICIDAD -->
+                    <article class="subject-card electricity-card">
+
+                        <div class="subject-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <h3>Electricidad</h3>
+
+                        <ul>
+                            <li>Conceptos básicos</li>
+                            <li>Herramientas</li>
+                            <li>Circuitos</li>
+                            <li>Seguridad y más...</li>
+                        </ul>
+
+                        <a href="#" class="subject-btn">
+                            Ver materia
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- PLOMERÍA -->
+                    <article class="subject-card plumbing-card">
+
+                        <div class="subject-icon">
+                            <i class="fa-solid fa-faucet"></i>
+                        </div>
+
+                        <h3>Plomería</h3>
+
+                        <ul>
+                            <li>Herramientas</li>
+                            <li>Materiales</li>
+                            <li>Instalaciones básicas</li>
+                            <li>Mantenimiento y más...</li>
+                        </ul>
+
+                        <a href="#" class="subject-btn">
+                            Ver materia
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ZONA INFERIOR
+        ====================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="container dashboard-grid">
+
+
+                <!-- =================================================
+                     AVISOS
+                ================================================== -->
+
+                <div class="dashboard-card notices-card">
+
+                    <div class="dashboard-header">
+
+                        <h3>
+                            <i class="fa-solid fa-bullhorn"></i>
+                            Avisos Recientes
+                        </h3>
+
+                        <a href="#">
+                            Ver todos
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="notice-list">
+
+
+                        <div class="notice">
+
+                            <div class="notice-date pink">
+                                <strong>15</strong>
+                                <span>Abr</span>
+                            </div>
+
+                            <div class="notice-info">
+                                <h4>
+                                    Entrega de actividad: Redes Sociales
+                                </h4>
+
+                                <p>
+                                    Crear una publicación con fines educativos.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="notice">
+
+                            <div class="notice-date purple">
+                                <strong>12</strong>
+                                <span>Abr</span>
+                            </div>
+
+                            <div class="notice-info">
+                                <h4>
+                                    Práctica de Electricidad
+                                </h4>
+
+                                <p>
+                                    Revisar material en la sección de recursos.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="notice">
+
+                            <div class="notice-date green">
+                                <strong>10</strong>
+                                <span>Abr</span>
+                            </div>
+
+                            <div class="notice-info">
+                                <h4>
+                                    Examen de Computación
+                                </h4>
+
+                                <p>
+                                    Se realizará el próximo viernes.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CALENDARIO
+                ================================================== -->
+
+<div class="dashboard-card calendar-card">
+    <div class="dashboard-header">
+        <h3>
+            <i class="fa-regular fa-calendar"></i>
+            Calendario de Actividades
+        </h3>
+
+        <a href="https://calendar.google.com/calendar/u/0?cid=NTA5MTM0ZDI0MDcyMTEwOWVjMTM5NmM5ZGU4ZGE2YzdjYzQ0YTM0MzZkNzMzZGViNmM5YmEyMjg2MTRjYTI5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+           target="_blank"
+           rel="noopener">
+            Ver calendario →
+        </a>
+    </div>
+
+    <div class="google-calendar">
+        <iframe
+            src="https://calendar.google.com/calendar/embed?src=509134d240721109ec1396c9de8da6c7cc44a3436d733deb6c9ba228614ca299%40group.calendar.google.com&ctz=America%2FMonterrey"
+            style="border: 0"
+            width="800"
+            height="600"
+            frameborder="0"
+            scrolling="no">
+        </iframe>
+    </div>
+</div>
+
+
+
+                <!-- =================================================
+                     RECURSOS
+                ================================================== -->
+
+                <div class="dashboard-card resources-card" id="recursos">
+
+                    <div class="dashboard-header">
+
+                        <h3>
+                            <i class="fa-regular fa-folder-open"></i>
+                            Recursos y Enlaces
+                        </h3>
+
+                    </div>
+
+
+                    <div class="resources-grid">
+
+
+                        <a href="#" class="resource">
+
+                            <div class="resource-icon">
+                                <i class="fa-regular fa-file-lines"></i>
+                            </div>
+
+                            <div>
+                                <strong>Materiales en PDF</strong>
+                                <span>Guías, apuntes y más</span>
+                            </div>
+
+                        </a>
+
+
+
+                        <a href="#" class="resource">
+
+                            <div class="resource-icon">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+
+                            <div>
+                                <strong>Videos de apoyo</strong>
+                                <span>Explicaciones y tutoriales</span>
+                            </div>
+
+                        </a>
+
+
+
+                        <a href="#" class="resource">
+
+                            <div class="resource-icon">
+                                <i class="fa-regular fa-image"></i>
+                            </div>
+
+                            <div>
+                                <strong>Galería de proyectos</strong>
+                                <span>Trabajo de los alumnos</span>
+                            </div>
+
+                        </a>
+
+
+
+                        <a href="#contacto" class="resource">
+
+                            <div class="resource-icon">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+
+                            <div>
+                                <strong>Formulario de contacto</strong>
+                                <span>Escríbeme</span>
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SOBRE MÍ
+        ====================================================== -->
+
+        <section class="about section" id="sobre-mi">
+
+            <div class="container about-container">
+
+                <div class="about-image">
+
+                    <img 
+                        src="img/perfil.jpg"
+                        alt="Ing. Brigette Arroyo"
+                    >
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <span class="section-label">
+                        SOBRE MÍ
+                    </span>
+
+                    <h2>
+                        Educación práctica
+                        para construir un mejor futuro
+                    </h2>
+
+                    <p>
+                        Soy profesora de computación y mi objetivo es
+                        ayudarte a desarrollar habilidades que puedas
+                        utilizar tanto en el aula como en tu vida diaria.
+                    </p>
+
+                    <p>
+                        En este espacio encontrarás materiales,
+                        actividades, proyectos y recursos relacionados
+                        con tecnología, redes sociales, electricidad
+                        y plomería.
+                    </p>
+
+                    <a href="#contacto" class="btn btn-primary">
+                        Contáctame
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACTO
+        ====================================================== -->
+
+        <section class="contact section" id="contacto">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="title-decoration">
+                        <span>‹</span>
+                        <h2>Contacto</h2>
+                        <span>›</span>
+                    </div>
+
+                    <p>
+                        ¿Tienes alguna pregunta? Escríbeme.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-container">
+
+
+                    <div class="contact-info">
+
+                        <h3>
+                            Estamos para aprender juntos
+                        </h3>
+
+                        <p>
+                            Puedes comunicarte conmigo para resolver
+                            dudas, consultar materiales o conocer más
+                            sobre las actividades.
+                        </p>
+
+
+                        <div class="contact-item">
+
+                            <div>
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+
+                            <span>
+                                correo@ejemplo.com
+                            </span>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+
+                            <span>
+                                México
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <form class="contact-form" id="contactForm">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Nombre
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Escribe tu nombre"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Correo electrónico
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="correo@ejemplo.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Mensaje
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                placeholder="Escribe tu mensaje..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">
+
+                            <i class="fa-regular fa-paper-plane"></i>
+
+                            Enviar mensaje
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+
+            <div class="footer-message">
+
+                <span>
+                    ¡Juntos aprendemos más!
+                </span>
+
+                <i class="fa-regular fa-heart"></i>
+
+            </div>
+
+
+            <div class="footer-center">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <span>
+                    Ing. Brigette Arroyo
+                </span>
+
+                <span>|</span>
+
+                <span>Tecnología</span>
+
+                <span>•</span>
+
+                <span>Computación</span>
+
+                <span>•</span>
+
+                <span>Electricidad</span>
+
+                <span>•</span>
+
+                <span>Plomería</span>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
