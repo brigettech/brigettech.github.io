@@ -935,7 +935,43 @@ ul {
     line-height: 1.4;
 }
 
+.notice-list {
+  display: grid;
+  gap: 14px;
+}
 
+.notice-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e8edf2;
+}
+
+.notice-date {
+  min-width: 100px;
+  color: #52657a;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.notice-content h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.notice-content p {
+  margin: 0;
+  color: #52657a;
+  line-height: 1.5;
+}
+
+.calendar-status {
+  color: #64748b;
+  font-size: 0.8rem;
+}
 
 /* =========================
    GOOGLE CALENDAR
