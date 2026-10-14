@@ -360,210 +360,122 @@ console.log(
 9. AVISOS RECIENTES DESDE GOOGLE CALENDAR
 ========================================================= */
 
-/*
 
-IMPORTANTE:
-
-Sustituye TU_API_KEY por tu clave de Google Calendar API.
-
-No uses contraseñas ni claves privadas.
-*/
-
-const GOOGLE_CALENDAR_ID =
-"509134d240721109ec1396c9de8da6c7cc44a3436d733deb6c9ba228614ca299@group.calendar.google.com";
-
-const GOOGLE_CALENDAR_API_KEY = "AIzaSyB8VwQy33txA0_soQTR7yA0kAxwBUWdKpc";
-
-async function cargarAvisosRecientes() {
-
-const contenedor =
-    document.getElementById("avisos-recientes");
-
-if (!contenedor) {
-    return;
-}
-
-contenedor.innerHTML =
-    "<p>Cargando próximos avisos...</p>";
-
-const ahora = new Date().toISOString();
-
-const url =
-    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(GOOGLE_CALENDAR_ID)}/events` +
-    `?key=${encodeURIComponent(GOOGLE_CALENDAR_API_KEY)}` +
-    `&singleEvents=true&orderBy=startTime` +
-    `&timeMin=${encodeURIComponent(ahora)}` +
-    `&maxResults=5`;
-
-try {
-
-    const respuesta = await fetch(url);
-
-    if (!respuesta.ok) {
-        throw new Error(`Error HTTP: ${respuesta.status}`);
-    }
-
-    const datos = await respuesta.json();
-
-    const eventos = (datos.items || [])
-        .filter(evento => evento.status !== "cancelled");
-
-    if (eventos.length === 0) {
-
-        contenedor.innerHTML =
-            "<p>No hay actividades próximas programadas.</p>";
-
-        return;
-    }
-
-    contenedor.innerHTML = eventos.map(evento => {
-
-        const esTodoElDia = Boolean(evento.start?.date);
-
-        let fechaTexto = "";
-
-        if (esTodoElDia) {
-
-            const [anio, mes, dia] =
-                evento.start.date.split("-").map(Number);
-
-            fechaTexto = new Date(anio, mes - 1, dia)
-                .toLocaleDateString("es-MX", {
-                    weekday: "short",
-                    day: "numeric",
-                    month: "short"
-                });
-
-        } else {
-
-            fechaTexto = new Date(evento.start.dateTime)
-                .toLocaleString("es-MX", {
-                    weekday: "short",
-                    day: "numeric",
-                    month: "short",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    timeZone: "America/Monterrey"
-                });
-
-        }
-
-        return `
-            <article class="notice-item">
-                <div class="notice-icon">
-                    <i class="fa-regular fa-calendar"></i>
-                </div>
-
-                <div class="notice-content">
-                    <h4>${escaparTexto(evento.summary || "Actividad escolar")}</h4>
-                    <p>${escaparTexto(fechaTexto)}</p>
-                </div>
-            </article>
-        `;
-
-    }).join("");
-
-} catch (error) {
-
-    console.error(
-        "Error al cargar los eventos de Google Calendar:",
-        error
-    );
-
-    contenedor.innerHTML =
-        "<p>No fue posible cargar los avisos. Verifica la configuración de Google Calendar.</p>";
-
-}
-
-}
-
-/* Evita insertar texto del calendario como HTML */
-
-function escaparTexto(texto) {
-
-const elemento = document.createElement("span");
-
-elemento.textContent = texto;
-
-return elemento.innerHTML;
-
-}
-
-/* Cargar al abrir la página y actualizar cada 15 minutos */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-cargarAvisosRecientes();
-
-setInterval(cargarAvisosRecientes, 15 * 60 * 1000);
-
-});
-
+/* =========================================================
+   AVISOS RECIENTES DESDE GOOGLE CALENDAR
+   Agrupados por mes, con fecha, hora, comunicado y lugar.
+========================================================= */
 
 const CALENDAR_ID =
   "509134d240721109ec1396c9de8da6c7cc44a3436d733deb6c9ba228614ca299@group.calendar.google.com";
 
-const API_KEY = "AIzaSyB8VwQy33txA0_soQTR7yA0kAxwBUWdKpc";
+// Pega aquí tu clave nueva o la que hayas restringido.
+const API_KEY = "PEGA_AQUI_TU_CLAVE_RESTRINGIDA";
+
 const TIME_ZONE = "America/Monterrey";
-const DAYS_AHEAD = 30;
-const MAX_NOTICES = 5;
+const DAYS_AHEAD = 365;
+const MAX_NOTICES = 50;
 
 const noticeList = document.getElementById("notice-list");
 const calendarStatus = document.getElementById("calendar-status");
 
-function formatEventDate(event) {
-  const isAllDay = Boolean(event.start?.date);
-  const rawDate = isAllDay ? event.start.date : event.start?.dateTime;
+const dateFormatter = new Intl.DateTimeFormat("es-MX", {
+  timeZone: TIME_ZONE,
+  day: "numeric",
+  month: "short"
+});
 
-  if (!rawDate) return "Fecha por confirmar";
+const timeFormatter = new Intl.DateTimeFormat("es-MX", {
+  timeZone: TIME_ZONE,
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true
+});
 
-  // Para eventos de día completo, evita que la zona horaria
-  // cambie el día mostrado.
-  const date = isAllDay
-    ? new Date(`${rawDate}T12:00:00Z`)
-    : new Date(rawDate);
+const monthFormatter = new Intl.DateTimeFormat("es-MX", {
+  timeZone: TIME_ZONE,
+  month: "long",
+  year: "numeric"
+});
 
-  const options = {
-    timeZone: TIME_ZONE,
-    day: "numeric",
-    month: "short",
-    year: "numeric"
-  };
-
-  if (!isAllDay) {
-    options.hour = "2-digit";
-    options.minute = "2-digit";
-    options.hour12 = true;
+function getEventDate(event) {
+  if (event.start?.dateTime) {
+    return new Date(event.start.dateTime);
   }
 
-  return new Intl.DateTimeFormat("es-MX", options).format(date);
+  if (event.start?.date) {
+    // Mediodía UTC para evitar cambios accidentales de día.
+    return new Date(`${event.start.date}T12:00:00Z`);
+  }
+
+  return null;
 }
 
-function addNotice(event) {
-  const item = document.createElement("article");
-  item.className = "notice-item";
+function createElement(tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
+}
 
-  const date = document.createElement("div");
-  date.className = "notice-date";
-  date.textContent = formatEventDate(event);
+function createNotice(event) {
+  const date = getEventDate(event);
+  const allDay = Boolean(event.start?.date);
 
-  const content = document.createElement("div");
-  content.className = "notice-content";
+  const item = createElement("article", "notice-item");
 
-  const title = document.createElement("h3");
-  title.textContent = event.summary || "Actividad programada";
+  const dateBox = createElement("div", "notice-date");
+  dateBox.appendChild(
+    createElement("span", "notice-day", dateFormatter.format(date))
+  );
 
-  content.appendChild(title);
-
-  if (event.description) {
-    const description = document.createElement("p");
-    // Limita el texto para que los avisos no sean demasiado largos.
-    description.textContent = event.description.slice(0, 220);
-    content.appendChild(description);
+  if (!allDay) {
+    dateBox.appendChild(
+      createElement("span", "notice-time", timeFormatter.format(date))
+    );
+  } else {
+    dateBox.appendChild(
+      createElement("span", "notice-time", "Todo el día")
+    );
   }
 
-  item.append(date, content);
-  noticeList.appendChild(item);
+  const content = createElement("div", "notice-content");
+
+  content.appendChild(
+    createElement(
+      "h3",
+      "notice-title",
+      event.summary || "Actividad escolar"
+    )
+  );
+
+  if (event.description?.trim()) {
+    content.appendChild(
+      createElement(
+        "p",
+        "notice-description",
+        event.description.trim()
+      )
+    );
+  }
+
+  if (event.location?.trim()) {
+    const place = createElement("p", "notice-location");
+    place.appendChild(createElement("span", "location-label", "Lugar: "));
+    place.appendChild(document.createTextNode(event.location.trim()));
+    content.appendChild(place);
+  } else {
+    content.appendChild(
+      createElement(
+        "p",
+        "notice-location notice-location-missing",
+        "Lugar por confirmar"
+      )
+    );
+  }
+
+  item.append(dateBox, content);
+  return item;
 }
 
 async function loadCalendarNotices() {
@@ -572,13 +484,10 @@ async function loadCalendarNotices() {
     return;
   }
 
-  if (!API_KEY || API_KEY === "PEGA_AQUI_TU_CLAVE_DE_API") {
-    noticeList.textContent = "Falta configurar la clave de API.";
-    return;
-  }
-
   noticeList.replaceChildren();
-  noticeList.textContent = "Cargando avisos...";
+  noticeList.appendChild(
+    createElement("p", "calendar-loading", "Cargando avisos...")
+  );
 
   if (calendarStatus) calendarStatus.textContent = "";
 
@@ -592,7 +501,7 @@ async function loadCalendarNotices() {
       key: API_KEY,
       singleEvents: "true",
       orderBy: "startTime",
-      maxResults: "50",
+      maxResults: String(MAX_NOTICES),
       timeMin: now.toISOString(),
       timeMax: end.toISOString(),
       timeZone: TIME_ZONE
@@ -605,41 +514,91 @@ async function loadCalendarNotices() {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error(`Google Calendar respondió con ${response.status}`);
+      const detail = await response.text();
+      console.error("Error de Google Calendar:", response.status, detail);
+      throw new Error(`Error HTTP ${response.status}`);
     }
 
     const data = await response.json();
 
-    const events = (data.items || []).filter(event =>
-      event.status !== "cancelled" &&
-      (event.start?.dateTime || event.start?.date)
-    );
+    const events = (data.items || [])
+      .filter(event =>
+        event.status !== "cancelled" &&
+        (event.start?.dateTime || event.start?.date)
+      )
+      .sort((a, b) => getEventDate(a) - getEventDate(b));
 
     noticeList.replaceChildren();
 
     if (events.length === 0) {
-      noticeList.textContent =
-        "No hay eventos próximos en los siguientes 30 días.";
+      noticeList.appendChild(
+        createElement(
+          "p",
+          "calendar-empty",
+          "No hay actividades próximas programadas."
+        )
+      );
       return;
     }
 
-    events.slice(0, MAX_NOTICES).forEach(addNotice);
+    // Agrupar eventos por mes y año.
+    const groups = new Map();
+
+    events.forEach(event => {
+      const date = getEventDate(event);
+      const monthKey = new Intl.DateTimeFormat("en-CA", {
+        timeZone: TIME_ZONE,
+        year: "numeric",
+        month: "2-digit"
+      }).format(date);
+
+      if (!groups.has(monthKey)) {
+        groups.set(monthKey, {
+          title: monthFormatter.format(date),
+          events: []
+        });
+      }
+
+      groups.get(monthKey).events.push(event);
+    });
+
+    groups.forEach(group => {
+      const section = createElement("section", "notice-month");
+      section.appendChild(
+        createElement("h3", "notice-month-title", group.title)
+      );
+
+      const monthItems = createElement("div", "notice-month-list");
+
+      group.events.forEach(event => {
+        monthItems.appendChild(createNotice(event));
+      });
+
+      section.appendChild(monthItems);
+      noticeList.appendChild(section);
+    });
 
     if (calendarStatus) {
       calendarStatus.textContent =
-        `Actualizado: ${new Intl.DateTimeFormat("es-MX", {
+        "Última actualización: " +
+        new Intl.DateTimeFormat("es-MX", {
           timeZone: TIME_ZONE,
-          dateStyle: "short",
-          timeStyle: "short"
-        }).format(new Date())}`;
+          hour: "2-digit",
+          minute: "2-digit"
+        }).format(new Date());
     }
   } catch (error) {
     console.error("Error al cargar Google Calendar:", error);
-    noticeList.textContent =
-      "No se pudieron cargar los avisos. Revisa la configuración de Google Calendar API.";
+    noticeList.replaceChildren();
+    noticeList.appendChild(
+      createElement(
+        "p",
+        "calendar-error",
+        "No se pudieron cargar los avisos. Revisa la configuración de Google Calendar API."
+      )
+    );
   }
 }
 
-// Cargar al abrir la página y actualizar cada 5 minutos.
-loadCalendarNotices();
+document.addEventListener("DOMContentLoaded", loadCalendarNotices);
 setInterval(loadCalendarNotices, 5 * 60 * 1000);
