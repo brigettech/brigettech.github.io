@@ -370,7 +370,7 @@ const CALENDAR_ID =
   "509134d240721109ec1396c9de8da6c7cc44a3436d733deb6c9ba228614ca299@group.calendar.google.com";
 
 // Pega aquí tu clave nueva o la que hayas restringido.
-const API_KEY = "PEGA_AQUI_TU_CLAVE_RESTRINGIDA";
+const API_KEY = "AIzaSyB8VwQy33txA0_soQTR7yA0kAxwBUWdKpc";
 
 const TIME_ZONE = "America/Monterrey";
 const DAYS_AHEAD = 365;
