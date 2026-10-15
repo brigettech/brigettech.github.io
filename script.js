@@ -374,7 +374,7 @@ const API_KEY = "AIzaSyB8VwQy33txA0_soQTR7yA0kAxwBUWdKpc";
 
 const TIME_ZONE = "America/Monterrey";
 const DAYS_AHEAD = 365;
-const MAX_NOTICES = 10;
+const MAX_NOTICES = 5;
 
 const noticeList = document.getElementById("notice-list");
 const calendarStatus = document.getElementById("calendar-status");
