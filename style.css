@@ -298,72 +298,19 @@ ul {
 }
 
 
-/* =========================================================
-   5. HERO — PORTADA INTEGRADA
-   ========================================================= */
 
-.hero {
-    position: relative;
-    overflow: hidden;
-    background: #fff;
-}
-
+/* Imagen de la portada */
 .hero-container {
-    position: relative;
     display: grid;
     grid-template-columns: 44% 56%;
-    align-items: center;
+    align-items: stretch;
     min-height: 325px;
 }
 
-/* Contenido de bienvenida */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 30px 10px 30px 5%;
-    min-width: 0;
-}
-
-.welcome {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    color: var(--navy);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 21px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.decor-line {
-    color: #1ca4e9;
-    font-size: 35px;
-    font-weight: 400;
-    line-height: 1;
-}
-
-.hero-content h2 {
-    color: var(--navy);
-    font-size: clamp(28px, 3vw, 42px);
-    line-height: 1.08;
-    font-weight: 800;
-    margin: 0 0 14px;
-}
-
-.hero-content p {
-    max-width: 550px;
-    color: #263e60;
-    font-size: 15px;
-    line-height: 1.55;
-    margin-bottom: 20px;
-}
-
-/* Imagen: sin bordes ni apariencia de tarjeta */
 .hero-image {
     position: relative;
-    align-self: stretch;
     width: 100%;
+    height: 100%;
     min-width: 0;
     min-height: 325px;
     overflow: hidden;
@@ -377,34 +324,33 @@ ul {
     min-height: 325px;
     object-fit: cover;
     object-position: center;
-    border: 0;
-    border-radius: 0;
 }
 
-/* Ajustes para celulares */
+/* Mantener el texto por encima */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+/* Adaptación a celulares */
 @media (max-width: 768px) {
     .hero-container {
         grid-template-columns: 1fr;
-        min-height: auto;
     }
 
     .hero-content {
-        padding: 28px 24px 18px;
-    }
-
-    .hero-content h2 {
-        font-size: clamp(28px, 7vw, 36px);
+        padding: 28px 24px;
     }
 
     .hero-image {
-        min-height: 230px;
-        height: 230px;
+        height: 240px;
+        min-height: 240px;
     }
 
     .hero-image img {
-        min-height: 230px;
-        height: 230px;
-        object-position: center;
+        height: 240px;
+        min-height: 240px;
     }
 }
 
