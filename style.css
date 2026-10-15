@@ -851,98 +851,139 @@ ul {
    9. AVISOS
    ========================================================= */
 
-.notice-list {
-display: grid;
-gap: 12px;
+/* Avisos recientes agrupados por mes */
+
+.notices-section {
+  width: 100%;
+}
+
+.notices-section > h2 {
+  margin-bottom: 18px;
+  color: #18345b;
+}
+
+.notice-month {
+  margin-bottom: 26px;
+}
+
+.notice-month-title {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #dce5f0;
+  color: #315b8d;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.notice-month-list {
+  display: grid;
+  gap: 12px;
 }
 
 .notice-item {
-display: flex;
-gap: 14px;
-align-items: flex-start;
-padding: 14px;
-border-radius: 12px;
-background: #fff;
-border: 1px solid #e8edf2;
-transition: box-shadow 0.2s ease;
-}
-
-.notice-item {
-box-shadow: 0 4px 12px rgba(20, 40, 70, 0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #e1e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(24, 52, 91, 0.06);
 }
 
 .notice-date {
-flex-shrink: 0;
-width: 58px;
-min-width: 58px;
-min-height: 58px;
-padding: 8px 4px;
-border-radius: 10px;
-background: #2c7de0;
-color: #fff;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-line-height: 1.2;
+  flex: 0 0 76px;
+  min-height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 5px;
+  border-radius: 10px;
+  background: #edf4ff;
+  color: #245da8;
+  text-align: center;
 }
 
-.notice-date strong {
-font-size: 20px;
-font-weight: 700;
+.notice-day {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
-.notice-date span {
-margin-top: 4px;
-font-size: 11px;
-text-transform: uppercase;
+.notice-time {
+  font-size: 0.78rem;
+  line-height: 1.2;
 }
 
 .notice-content {
-min-width: 0;
-flex: 1;
+  flex: 1;
+  min-width: 0;
 }
 
-.notice-content h3 {
-margin: 0 0 6px;
-color: var(--navy);
-font-size: 14px;
-line-height: 1.4;
+.notice-title {
+  margin: 2px 0 8px;
+  color: #18345b;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
-.notice-content p {
-margin: 0;
-color: #6a7890;
-font-size: 12px;
-line-height: 1.5;
-overflow-wrap: anywhere;
+.notice-description {
+  margin: 0 0 9px;
+  color: #536174;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.notice-location {
+  margin: 0;
+  color: #315b65;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.location-label {
+  font-weight: 700;
+}
+
+.notice-location-missing {
+  color: #7a8493;
+  font-style: italic;
 }
 
 .calendar-status {
-margin-top: 10px;
-color: #64748b;
-font-size: 12px;
-line-height: 1.5;
+  margin-top: 12px;
+  color: #788393;
+  font-size: 0.78rem;
+}
+
+.calendar-loading,
+.calendar-empty,
+.calendar-error {
+  padding: 12px 0;
+  color: #596579;
 }
 
 @media (max-width: 480px) {
-.notice-item {
-gap: 10px;
-padding: 10px;
+  .notice-item {
+    gap: 10px;
+    padding: 11px;
+  }
+
+  .notice-date {
+    flex-basis: 68px;
+  }
+
+  .notice-title {
+    font-size: 0.93rem;
+  }
 }
 
-.notice-date {
-    width: 50px;
-    min-width: 50px;
-    min-height: 50px;
-}
-
-.notice-date strong {
-    font-size: 17px;
-}
-
-}
 /* =========================
    GOOGLE CALENDAR
 ========================= */
