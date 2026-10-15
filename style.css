@@ -349,7 +349,7 @@ ul {
 /* Ajustes para celulares */
 @media (max-width: 768px) {
     .hero-container {
-        min-height: 500px;
+        min-height: 300px;
         align-items: flex-start;
     }
 
