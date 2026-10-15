@@ -215,76 +215,57 @@ subjectButtons.forEach(button => {
    6. FORMULARIO DE CONTACTO
    ========================================================= */
 
-const contactForm =
-    document.getElementById("contactForm");
 
+const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    contactForm.addEventListener(
-        "submit",
-        event => {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-            /*
-             * Evitamos que el formulario
-             * recargue la página.
-             */
-
-            event.preventDefault();
-
-
-            /*
-             * Obtener datos
-             */
-
-            const name =
-                document.getElementById("name").value.trim();
-
-            const email =
-                document.getElementById("email").value.trim();
-
-            const message =
-                document.getElementById("message").value.trim();
-
-
-            /*
-             * Validación básica
-             */
-
-            if (!name || !email || !message) {
-
-                alert(
-                    "Por favor completa todos los campos."
-                );
-
-                return;
-
-            }
-
-
-            /*
-             * Mensaje temporal.
-             *
-             * Más adelante podemos conectar
-             * el formulario con un servicio real.
-             */
-
-            alert(
-                `¡Gracias, ${name}!\n\nTu mensaje ha sido preparado correctamente.`
-            );
-
-
-            /*
-             * Limpiar formulario
-             */
-
-            contactForm.reset();
-
+        if (!name || !email || !message) {
+            alert("Por favor completa todos los campos.");
+            return;
         }
-    );
 
+        const submitButton = contactForm.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Enviando...";
+        }
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: "POST",
+                body: new FormData(contactForm),
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            if (response.ok) {
+                alert(`¡Gracias, ${name}! Tu mensaje se envió correctamente.`);
+                contactForm.reset();
+            } else {
+                alert("No se pudo enviar el mensaje. Inténtalo de nuevo.");
+            }
+        } catch (error) {
+            alert("Ocurrió un error de conexión. Inténtalo más tarde.");
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.innerHTML =
+                    '<i class="fa-regular fa-paper-plane"></i> Enviar mensaje';
+            }
+        }
+    });
 }
-
 
 /* =========================================================
    7. EFECTO SUAVE PARA ENLACES INTERNOS
