@@ -299,121 +299,75 @@ ul {
 
 
 /* =========================================================
-   5. HERO
+   5. HERO — PORTADA INTEGRADA
    ========================================================= */
 
 .hero {
     position: relative;
-    background: #fff;
     overflow: hidden;
+    background: #fff;
 }
 
 .hero-container {
     position: relative;
-    min-height: 325px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 44% 56%;
     align-items: center;
+    min-height: 325px;
 }
 
-
-
-/* =========================================================
-   CONTENIDO HERO
-   ========================================================= */
-
+/* Contenido de bienvenida */
 .hero-content {
-    padding: 42px 20px 42px 55px;
-
     position: relative;
-
     z-index: 2;
+    padding: 30px 10px 30px 5%;
+    min-width: 0;
 }
-
 
 .welcome {
     display: flex;
     align-items: center;
-
     gap: 8px;
-
     margin-bottom: 8px;
-
     color: var(--navy);
-
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: 21px;
-
     font-weight: bold;
-
     font-style: italic;
 }
 
-
 .decor-line {
     color: #1ca4e9;
-
     font-size: 35px;
-
     font-weight: 400;
-
     line-height: 1;
 }
 
-
 .hero-content h2 {
     color: var(--navy);
-
-    font-size: clamp(32px, 3.2vw, 44px);
-
+    font-size: clamp(28px, 3vw, 42px);
     line-height: 1.08;
-
     font-weight: 800;
-
-    margin-bottom: 14px;
+    margin: 0 0 14px;
 }
-
 
 .hero-content p {
     max-width: 550px;
-
     color: #263e60;
-
     font-size: 15px;
-
-    line-height: 1.6;
-
+    line-height: 1.55;
     margin-bottom: 20px;
 }
 
-
-
-
-/* =========================================================
-   IMAGEN HERO
-   ========================================================= */
-
+/* Imagen: sin bordes ni apariencia de tarjeta */
 .hero-image {
-    width: 100%;
-    height: 100%;
-    min-height: 325px;
-
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-
-    overflow: hidden;
     position: relative;
-}
-
-.hero-image {
-    position: absolute;
-    inset: 0;
+    align-self: stretch;
     width: 100%;
-    height: 100%;
-    z-index: 0;
+    min-width: 0;
+    min-height: 325px;
     overflow: hidden;
-    pointer-events: none;
+    z-index: 1;
 }
 
 .hero-image img {
@@ -423,33 +377,38 @@ ul {
     min-height: 325px;
     object-fit: cover;
     object-position: center;
+    border: 0;
+    border-radius: 0;
 }
 
-/* =========================================================
-   HERO EN CELULARES
-   ========================================================= */
-
+/* Ajustes para celulares */
 @media (max-width: 768px) {
     .hero-container {
-        min-height: 520px;
-        align-items: flex-start;
-    }
-
-    .hero-image img {
-        object-position: 62% center;
+        grid-template-columns: 1fr;
+        min-height: auto;
     }
 
     .hero-content {
-        width: 100%;
-        padding: 28px 24px;
-        background: linear-gradient(
-            to bottom,
-            rgba(255,255,255,0.98) 0%,
-            rgba(255,255,255,0.92) 55%,
-            rgba(255,255,255,0) 100%
-        );
+        padding: 28px 24px 18px;
+    }
+
+    .hero-content h2 {
+        font-size: clamp(28px, 7vw, 36px);
+    }
+
+    .hero-image {
+        min-height: 230px;
+        height: 230px;
+    }
+
+    .hero-image img {
+        min-height: 230px;
+        height: 230px;
+        object-position: center;
     }
 }
+
+
 
 
 /* =========================================================
@@ -495,45 +454,6 @@ ul {
     box-shadow: 0 8px 20px rgba(16, 45, 87, 0.25);
 }
 
-
-/* =========================================================
-   IMAGEN HERO
-   ========================================================= */
-
-.hero-image {
-    height: 325px;
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-
-.hero-image::before {
-    content: "";
-
-    position: absolute;
-
-    left: -80px;
-    top: 40px;
-
-    width: 180px;
-    height: 180px;
-
-    background: rgba(40, 169, 226, 0.14);
-
-    border-radius: 50%;
-
-    z-index: 2;
-}
-
-
-.hero-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
 
 
 /* =========================================================
