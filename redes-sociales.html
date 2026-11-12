@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales | Ing. Brigette Arroyo</title>
+    <meta name="description" content="Aprende a utilizar WhatsApp, Facebook e Instagram desde tu celular, de forma práctica y segura.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+
+        <div class="container nav-container">
+
+            <!-- LOGO / NOMBRE -->
+            <a href="index.html#inicio" class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span class="graduation">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </span>
+                </div>
+
+                <div class="logo-text">
+                    <h1>Ing. Brigette Arroyo</h1>
+                    <p>Tecnología y Formación para tu Futuro</p>
+                </div>
+
+            </a>
+
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button 
+                class="menu-toggle" 
+                id="menuToggle"
+                aria-label="Abrir menú"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <!-- MENÚ -->
+            <nav class="nav" id="mainNav">
+
+                <a href="index.html#inicio" class="nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Inicio</span>
+                </a>
+
+                <a href="index.html#materias" class="nav-link">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Materias</span>
+                    <i class="fa-solid fa-chevron-down small-arrow"></i>
+                </a>
+
+                <a href="index.html#recursos" class="nav-link">
+                    <i class="fa-regular fa-folder-open"></i>
+                    <span>Recursos</span>
+                    <i class="fa-solid fa-chevron-down small-arrow"></i>
+                </a>
+
+                <a href="index.html#calendario" class="nav-link">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span>Calendario</span>
+                </a>
+
+                <a href="index.html#sobre-mi" class="nav-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Sobre mí</span>
+                </a>
+
+                <a href="index.html#contacto" class="nav-link">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Contacto</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+<main>
+    <!-- PRESENTACIÓN -->
+    <section class="hero" id="inicio">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="welcome">
+                    <span class="decor-line">‹</span>
+                    <span>¡Bienvenidos a Redes Sociales!</span>
+                    <span class="decor-line">›</span>
+                </div>
+                <h2>Aprende a utilizar tu celular y conecta con el mundo</h2>
+                <p>
+                    En esta materia aprenderás paso a paso a utilizar WhatsApp,
+                    Facebook e Instagram. Practicarás cómo comunicarte, compartir
+                    contenido, crear perfiles y páginas para negocios, y proteger
+                    tu información personal.
+                </p>
+                <a href="#temas" class="btn btn-primary">
+                    <i class="fa-solid fa-book-open"></i>
+                    Explorar los temas
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="img/redes-sociales.png" alt="Aprendizaje de redes sociales desde el celular">
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMARIO -->
+    <section class="subjects section" id="temas">
+        <div class="container">
+            <div class="section-heading">
+                <div class="title-decoration">
+                    <span>‹</span><h2>¿Qué aprenderás?</h2><span>›</span>
+                </div>
+                <p>Conoce las herramientas digitales que puedes aprovechar desde tu celular.</p>
+            </div>
+
+            <div class="subjects-grid">
+                <article class="subject-card social-card">
+                    <div class="subject-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3>Uso del celular</h3>
+                    <ul>
+                        <li>Funciones principales del teléfono</li>
+                        <li>Conexión a internet y aplicaciones</li>
+                        <li>Fotografías y contactos</li>
+                        <li>Configuraciones básicas</li>
+                    </ul>
+                    <a href="#celular" class="subject-btn">Ver tema <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <article class="subject-card computer-card">
+                    <div class="subject-icon computer-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h3>WhatsApp</h3>
+                    <ul>
+                        <li>Mensajes y notas de voz</li>
+                        <li>Fotos y documentos</li>
+                        <li>Grupos y llamadas</li>
+                        <li>Privacidad y seguridad</li>
+                    </ul>
+                    <a href="#whatsapp" class="subject-btn">Ver tema <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <article class="subject-card electricity-card">
+                    <div class="subject-icon"><i class="fa-brands fa-facebook"></i></div>
+                    <h3>Facebook</h3>
+                    <ul>
+                        <li>Crear y configurar un perfil</li>
+                        <li>Publicaciones y fotografías</li>
+                        <li>Interacción y comunidad</li>
+                        <li>Páginas para negocios</li>
+                    </ul>
+                    <a href="#facebook" class="subject-btn">Ver tema <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <article class="subject-card plumbing-card">
+                    <div class="subject-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <h3>Instagram</h3>
+                    <ul>
+                        <li>Crear y editar un perfil</li>
+                        <li>Publicaciones e historias</li>
+                        <li>Videos y reels</li>
+                        <li>Perfiles profesionales</li>
+                    </ul>
+                    <a href="#instagram" class="subject-btn">Ver tema <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- USO DEL CELULAR -->
+    <section class="about section" id="celular">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="img/uso-celular.jpg" alt="Uso básico del teléfono celular">
+            </div>
+            <div class="about-content">
+                <span class="section-label">PRIMEROS PASOS</span>
+                <h2>Conoce y aprovecha tu celular</h2>
+                <p>Comenzaremos con las funciones básicas del teléfono: reconocer sus botones, organizar aplicaciones, conectarnos a internet y ajustar opciones importantes.</p>
+                <p>También practicaremos cómo tomar fotografías, guardar contactos y localizar archivos para utilizarlos en nuestras actividades.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <section class="subjects section" id="whatsapp">
+        <div class="container">
+            <div class="section-heading">
+                <div class="title-decoration"><span>‹</span><h2>Aprendamos WhatsApp</h2><span>›</span></div>
+                <p>Comunícate fácilmente con familiares, amistades, compañeros y clientes.</p>
+            </div>
+            <div class="subjects-grid">
+                <article class="subject-card social-card">
+                    <div class="subject-icon"><i class="fa-regular fa-message"></i></div>
+                    <h3>Mensajes y contactos</h3>
+                    <ul><li>Guardar un contacto</li><li>Iniciar una conversación</li><li>Enviar mensajes y emojis</li></ul>
+                </article>
+                <article class="subject-card computer-card">
+                    <div class="subject-icon computer-icon"><i class="fa-solid fa-photo-film"></i></div>
+                    <h3>Fotos, audios y archivos</h3>
+                    <ul><li>Enviar fotografías</li><li>Grabar notas de voz</li><li>Compartir documentos</li></ul>
+                </article>
+                <article class="subject-card electricity-card">
+                    <div class="subject-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Grupos y llamadas</h3>
+                    <ul><li>Crear grupos</li><li>Realizar llamadas</li><li>Hacer videollamadas</li></ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACEBOOK -->
+    <section class="about section" id="facebook">
+        <div class="container about-container">
+            <div class="about-content">
+                <span class="section-label">COMUNIDAD Y NEGOCIOS</span>
+                <h2>Facebook: perfiles y páginas</h2>
+                <p>Aprenderás a crear y completar un perfil, buscar personas, publicar contenido y comunicarte con tu comunidad.</p>
+                <p>También conocerás cómo crear una página para un negocio, agregar información de contacto, mostrar productos o servicios y responder a las personas interesadas.</p>
+            </div>
+            <div class="about-image">
+                <img src="img/facebook-negocio.jpg" alt="Facebook para comunicar y promocionar un negocio">
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section class="about section" id="instagram">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="img/instagram-negocio.jpg" alt="Perfil y publicaciones de Instagram">
+            </div>
+            <div class="about-content">
+                <span class="section-label">CREATIVIDAD DIGITAL</span>
+                <h2>Instagram: comparte y promociona</h2>
+                <p>Conocerás cómo crear un perfil, agregar una descripción, publicar fotografías y videos, compartir historias y explorar reels.</p>
+                <p>Además, veremos cómo utilizar una cuenta profesional para presentar productos o servicios y mantener comunicación con posibles clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEGURIDAD -->
+    <section class="subjects section" id="seguridad">
+        <div class="container">
+            <div class="section-heading">
+                <div class="title-decoration"><span>‹</span><h2>Seguridad y privacidad</h2><span>›</span></div>
+                <p>Aprende a utilizar las redes sociales de manera responsable.</p>
+            </div>
+            <div class="subjects-grid">
+                <article class="subject-card social-card">
+                    <div class="subject-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h3>Protege tus cuentas</h3>
+                    <ul><li>Crear contraseñas seguras</li><li>Activar la verificación en dos pasos</li><li>No compartir códigos personales</li></ul>
+                </article>
+                <article class="subject-card computer-card">
+                    <div class="subject-icon computer-icon"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>Cuida tu información</h3>
+                    <ul><li>Revisar la privacidad</li><li>Controlar quién ve tus publicaciones</li><li>Reconocer mensajes sospechosos</li></ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO / REGRESO A LA PÁGINA PRINCIPAL -->
+    <section class="contact section" id="contacto">
+        <div class="container">
+            <div class="section-heading">
+                <div class="title-decoration"><span>‹</span><h2>¿Tienes dudas?</h2><span>›</span></div>
+                <p>Visita la página principal para encontrar los medios de contacto y más recursos.</p>
+            </div>
+            <div class="contact-container">
+                <a href="index.html#contacto" class="btn btn-primary">
+                    Ir a Contacto <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="index.html#materias" class="btn btn-primary">
+                    Volver a Materias <i class="fa-solid fa-book-open"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+
+        <div class="container footer-container">
+
+
+            <div class="footer-message">
+
+                <span>
+                    ¡Juntos aprendemos más!
+                </span>
+
+                <i class="fa-regular fa-heart"></i>
+
+            </div>
+
+
+            <div class="footer-center">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <span>
+                    Ing. Brigette Arroyo
+                </span>
+
+                <span>|</span>
+
+                <span>Tecnología</span>
+
+                <span>•</span>
+
+                <span>Computación</span>
+
+                <span>•</span>
+
+                <span>Electricidad</span>
+
+                <span>•</span>
+
+                <span>Plomería</span>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <a href="https://www.facebook.com/profile.php?id=61576752801620" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+<a href="https://www.tiktok.com/@brigettech" aria-label="TikTok">
+    <i class="fa-brands fa-tiktok"></i>
+</a>
+
+                <a href="https://www.youtube.com/@brigettech" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
